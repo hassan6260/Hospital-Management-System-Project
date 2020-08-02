@@ -6,7 +6,6 @@ Doctor::Doctor(int empId, string firstName, unsigned short int age, string speci
 {
 }
 
-
 void Doctor::setSalary(double salary, double tax)
 {
 	this->salary = (salary - (salary * tax));
@@ -17,11 +16,13 @@ double Doctor::getSalary()
 	return salary;
 }
 
+double Doctor::getTax()
+{
+	return tax;
+}
+
 void Doctor::add()
 {
-	cout << "How many Doctor want to add  : ";
-	cin >> loop;
-	for (int i = 0; i < loop; i++) {
 		empId = ++id;
 		cout << "\t\tDoctor id : " << empId << endl;
 		cout << "\t\tFirst name : ";
@@ -37,15 +38,11 @@ void Doctor::add()
 		cout << "\t\tTax rate : ";
 		cin >> tax;
 		cout << "\t\t-----------------\n";
-		Doctor docRec(empId, firstName, age, specialization, hireDate);
-		docRec.setSalary(salary, tax);
-		d.push_back(docRec);
-	}
 }
 
 char option1;
 int doctorId;
-void Doctor::update()
+void Doctor::update(vector<Doctor> &d)
 {
 	bool isFound = false;
 
@@ -105,7 +102,7 @@ void Doctor::update()
 	system("cls");
 }
 
-void Doctor::search()
+void Doctor::search(vector<Doctor> d)
 {
 	bool isFound = false;
 	cout << "1. Search on Doctor id\n";
@@ -173,7 +170,7 @@ void Doctor::updateSalary()
 	//s.calcDocSal(200, 5);
 }
 
-void Doctor::display()
+void Doctor::display(vector<Doctor> d)
 {
 	for (size_t i = 0; i < d.size(); i++)
 	{

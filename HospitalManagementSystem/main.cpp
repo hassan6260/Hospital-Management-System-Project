@@ -18,11 +18,17 @@ int main()
 	char num;
 
 
-	Employee* empPtr = nullptr;//pointer to use polymorphism virtual funtion
-	Employee e1;
+	//Employee* empPtr = nullptr;//pointer to use polymorphism virtual funtion
+	Employee emp;
+	vector<Employee> e1;
+
 	Nurse n1;
-	Doctor d1;
-	
+	vector<Nurse> n;
+
+
+	Doctor doc;
+	vector<Doctor> d1;
+
 	Room r1;
 	vector<Room> r;
 
@@ -49,7 +55,6 @@ int main()
 		// starting of emp data
 		if (num == '1')
 		{
-			empPtr = &e1;
 			do {
 				cout
 					<< "\n\n\n\t\t1. Add Employee\n\n"
@@ -66,20 +71,21 @@ int main()
 
 				if (num == '1')
 				{
-					empPtr->add();
+					emp.add();
+					e1.push_back(emp);
 					system("pause");
 					system("cls");
 				}
 				else if (num == '2') {
-					empPtr->display();
+					emp.display(e1);
 					system("pause");
 					system("cls");
 				}
 				else if (num == '3') {
-					empPtr->update();
+					emp.update(e1);
 				}
 				else if (num == '4') {
-					empPtr->search();
+					emp.search(e1);
 				}
 				else if (num == '0') {
 					break;
@@ -95,7 +101,6 @@ int main()
 		// ending of emp data
 		//starting of Nurse data
 		else if (num == '2') {
-			empPtr = &n1;
 			do
 			{
 				cout
@@ -108,23 +113,23 @@ int main()
 				cin >> num;
 
 				system("cls");
-				//cout << endl;
 				if (num == '1')
 				{
-					empPtr->add();
+					n1.add();
+					n.push_back(n1);
 					system("pause");
 					system("cls");
 				}
 				else if (num == '2') {
-					empPtr->display();
+					n1.display(n);
 					system("pause");
 					system("cls");
 				}
 				else if (num == '3') {
-					empPtr->update();
+					n1.update(n);
 				}
 				else if (num == '4') {
-					empPtr->search();
+					n1.search(n);
 				}
 				else if (num == '0') {
 					break;
@@ -141,8 +146,6 @@ int main()
 		else if (num == '3') {
 			do
 			{
-				empPtr = &d1;
-				//e1.display();
 				cout
 					<< "\t\t1. Add Doctor\n"
 					<< "\t\t2. Display Doctor\n"
@@ -159,20 +162,22 @@ int main()
 
 				if (num == '1')
 				{
-					empPtr->add();
+					doc.add();
+					doc.setSalary(doc.getSalary(), doc.getTax());
+					d1.push_back(doc);
 					system("pause");
 					system("cls");
 				}
 				else if (num == '2') {
-					empPtr->display();
+					doc.display(d1);
 					system("pause");
 					system("cls");
 				}
 				else if (num == '3') {
-					empPtr->update();
+					doc.update(d1);
 				}
 				else if (num == '4') {
-					empPtr->search();
+					doc.search(d1);
 				}
 				else if (num == '0') {
 					break;
@@ -298,7 +303,7 @@ int main()
 		}
 	} while (num != 0);
 
-	empPtr->~Employee();
+	//empPtr->~Employee();
 	//empPtr2->~Nurse();
 	//delete empPtr;
 	return 0;

@@ -5,7 +5,6 @@ class Doctor : public Employee
 	string specialization;
 	double salary{};
 	double tax{};
-	vector<Doctor> d;
 
 
 public:
@@ -16,12 +15,13 @@ public:
 
 	void setSalary(double salary, double tax);
 	double getSalary();
+	double getTax();
 
 	void add();
-	void update();
-	void search();
+	void update(vector<Doctor> &d);
+	void search(vector<Doctor> d);
 	void updateSalary();
-	void display();
+	void display(vector<Doctor> d);
 	void showDetails();
 
 };

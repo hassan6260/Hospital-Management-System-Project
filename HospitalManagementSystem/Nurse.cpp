@@ -1,6 +1,5 @@
 #include "Nurse.h"
 
-
 Nurse::Nurse()
 {
 }
@@ -9,10 +8,6 @@ Nurse::Nurse(string firstName, unsigned short int age, int empId, string special
 	:Employee(firstName, age, empId, hireDate), specialization(specialization)
 {
 }
-
-/*Nurse::~Nurse()
-{
-}*/
 
 void Nurse::setSpecialization(string specialization)
 {
@@ -26,9 +21,6 @@ string Nurse::getSpecialization()
 
 void Nurse::add()
 {
-	cout << "How many nurses do you want to add : ";
-	cin >> loop;
-	for (int i = 0; i < loop; i++) {
 			empId = ++id;
 			cout << "\t\tNurse id : " << empId << endl;
 			cout << "\t\tFirst name : ";
@@ -40,13 +32,9 @@ void Nurse::add()
 			cout << "\t\thire date : ";
 			cin >> hireDate;
 			cout << "\t\t-----------------\n";
-
-			Nurse nurseRec(firstName, age, empId, specialization, hireDate);
-			nurse.push_back(nurseRec);
-	}
 }
 
-void Nurse::display()
+void Nurse::display(vector<Nurse> nurse)
 {
 	for (size_t i = 0; i < nurse.size(); i++)
 	{
@@ -56,9 +44,8 @@ void Nurse::display()
 }
 	char option;
 	int nurseId;
-void Nurse::update()
+void Nurse::update(vector<Nurse> &nurse)
 {
-
 	bool isFound = false;
 
 	cout << "Enter Nurse id : ";
@@ -109,7 +96,7 @@ void Nurse::update()
 	system("cls");
 }
 
-void Nurse::search()
+void Nurse::search(vector<Nurse> nurse)
 {
 	bool isFound = false;
 	cout << "1. Search on Nurse id\n";

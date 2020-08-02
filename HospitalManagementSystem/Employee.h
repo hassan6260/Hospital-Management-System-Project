@@ -10,7 +10,6 @@ protected:
 	string hireDate;
 	int loop=0;
 	  
-	vector<Employee> emp1;
 
 public:
 	Employee() = default;
@@ -23,9 +22,9 @@ public:
 
 
 	virtual void add();
-	virtual void display();
-	virtual void update();
-	virtual void search();
+	virtual void display(vector<Employee> emp1);
+	virtual void update(vector<Employee> &emp1);
+	virtual void search(vector<Employee> emp1);
 	void showDetails();
 
 	~Employee();

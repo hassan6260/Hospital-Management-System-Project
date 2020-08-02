@@ -34,9 +34,6 @@ string Employee::getHireDate()
 
 void Employee::add()
 {
-	cout << "How many Employee want to add  : ";
-		cin >> loop;
-	for (int i = 0; i < loop; i++) {
 			empId = ++id;
 			cout << "\t\tEmlpyee id : " << empId << endl;
 			cout << "\t\tFirst name : ";
@@ -48,12 +45,9 @@ void Employee::add()
 			cout << "\t\thire date : ";
 			cin >> hireDate;
 			cout << "\t\t-----------------\n";
-			Employee empRec(firstName, age, empId, job, hireDate);
-			emp1.push_back(empRec);
-	}
 }
 
-void Employee::display()
+void Employee::display(vector<Employee> emp1)
 {
 	for (size_t i = 0; i < emp1.size(); i++)
 	{
@@ -62,7 +56,7 @@ void Employee::display()
 	}
 }
 
-void Employee::update()
+void Employee::update(vector<Employee> &emp1)
 {
 	char option;
 	int empId;
@@ -116,7 +110,7 @@ void Employee::update()
 		system("cls");
 }
 
-void Employee::search()
+void Employee::search(vector<Employee> emp1)
 {
 	char option;
 	int empId;
